@@ -1,5 +1,3 @@
-# This is an example of a custom Tekton task that can be used in both build and review pipelines.
-# Modify this template to fit your specific task requirements or use it as a base for creating custom configurations.
 apiVersion: tekton.dev/v1beta1
 kind: Task
 metadata:
@@ -11,8 +9,10 @@ spec:
   - name: BASE_IMAGE
     type: string
     default: "alpine"
+    description: "The base Docker image to use for the task"
   - name: username
     type: string
+    description: "The username to personalize the task's output"
   workspaces:
     - description: A workspace that contains fetched git repo.
       name: source
